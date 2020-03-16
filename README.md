@@ -26,7 +26,7 @@ npm run
 - [Ченюк Вероника](https://github.com/VeronicaChenyuk)
 - [Кирилл Дегтярёв](https://github.com/keerji)
   
-## Next Steps
+## Следующие шаги
 
 - Сделать адаптивную верстку
 - Мобильное приложение
