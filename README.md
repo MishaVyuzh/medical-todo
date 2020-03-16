@@ -2,24 +2,24 @@
 
 **HealthHelper** - Cервис для отслеживания истории лечения пациента и коррекции курса врачом.
 
-## Our Mission
+## Наша миссия
 Упростить коммуникацию между пациентом и врачем и сделать лечение более эфективным. 
 
-## Getting Started
+## Начало использования
 ```
 cd backend
 npm install
 npm run 
 ```
 
-## MVP Functionality
+## MVP функционал
 * Регистрация врача.
 * Регистрация пациента.
 * Назначение методологии пациенту.
 * Появление ежедневных задач у пациента.
 * Статистика прохождения курса лечения.
 
-## Authors 
+## Авторы
 
 - [Михаил Вьюжанин](https://github.com/MishaVyuzh)
 - [Гольман Ефим](https://github.com/EfimGolman)
@@ -32,8 +32,8 @@ npm run
 - Мобильное приложение
 - Расширить функционал
 
-## Contributing
+## Содействие
 
-We conform to the [AirBnB JavaScript Style Guide](http://airbnb.io/projects/javascript)
+Мы соответствуем [AirBnB JavaScript Style Guide](http://airbnb.io/projects/javascript)
 
 
