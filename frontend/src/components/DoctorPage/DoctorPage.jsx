@@ -63,7 +63,7 @@ const DoctorPage = (props) => {
 
   return (
     <div className="doctorPage">
-      <Form method="POST" action="https://health-medical-helper.herokuapp.com/personal/doctor" onSubmit={(e) => loadHandler(e, props)}>
+      <Form method="POST" action={`${process.env.PATH_DEV}personal/doctor`} onSubmit={(e) => loadHandler(e, props)}>
         <FormGroup>
           <Label for="doctorName">Имя  Отчество  Фамилия</Label>
           <Input type="doctorName" name="doctorName" id="doctorName" placeholder="Введите Имя, Фамилию и Отчество" defaultValue={doctorName} />

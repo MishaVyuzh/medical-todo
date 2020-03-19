@@ -18,7 +18,7 @@ const createUser = async (event, props, setErrorReg) => {
   const isLogin = props.isLogined;
 
 
-  const response = await fetch('https://health-medical-helper.herokuapp.com/auth/registration', {
+  const response = await fetch(`${process.env.PATH_DEV}auth/registration`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -46,9 +46,15 @@ const RegistrationForm = (props) => {
         <Form className="registrationForm" onSubmit={(event) => createUser(event, props, setErrorReg)}>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="exampleLogin" className="mr-sm-2">Логин</Label>
-            <Input type="text" name="login" id="exampleLogin" placeholder="Введите логин" 
-                    pattern="[\w]{3,}"
-                    title="Логин может содержать только латинские символы и цифры и минимум 3 символа." required />
+            <Input
+              type="text"
+              name="login"
+              id="exampleLogin"
+              placeholder="Введите логин"
+              pattern="[\w]{3,}"
+              title="Логин может содержать только латинские символы и цифры и минимум 3 символа."
+              required
+            />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="exampleEmail" className="mr-sm-2">Почта</Label>
@@ -56,9 +62,15 @@ const RegistrationForm = (props) => {
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="examplePassword" className="mr-sm-2">Пароль</Label>
-            <Input type="password" name="password" id="examplePassword" placeholder="Введите пароль из 6 символов" 
-                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$"
-                    title="Пароль должен содержать, по крайней мере, одну цифру и одну заглавную и строчную буквы, и, по крайней мере, 6 или более символов" required />
+            <Input
+              type="password"
+              name="password"
+              id="examplePassword"
+              placeholder="Введите пароль из 6 символов"
+              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$"
+              title="Пароль должен содержать, по крайней мере, одну цифру и одну заглавную и строчную буквы, и, по крайней мере, 6 или более символов"
+              required
+            />
           </FormGroup>
           <FormGroup>
             <Label for="exampleSelect">Выберите статус</Label>

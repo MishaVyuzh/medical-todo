@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.jsx'],
@@ -36,8 +37,8 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader'
-        ]
+          'file-loader',
+        ],
       },
     ],
   },
@@ -45,18 +46,19 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
     new CopyWebpackPlugin([
-    {
-      from: './src/favicon',
-      to: './favicon'
-    },
-    {
-      from: './src/img',
-      to: './img'
-    }
-  ]),
+      {
+        from: './src/favicon',
+        to: './favicon',
+      },
+      {
+        from: './src/img',
+        to: './img',
+      },
+    ]),
   ],
 };

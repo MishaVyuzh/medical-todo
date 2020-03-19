@@ -8,7 +8,6 @@ const router = express.Router();
 router.post('/', async (req, res, next) => {
   const { methodic } = req.body;
   const newMethodic = await new Methodic(methodic);
-  // console.log(methodic)
   const {
     patientEmail, doctorEmail, drugs, patientName,
     theraphies, analisis, comment,
@@ -19,25 +18,7 @@ router.post('/', async (req, res, next) => {
     nameOfDrug, dosage, frequency, beforeAfterEat, duration,
   }) => `\n${nameOfDrug} дозирока ${dosage} мг, принимать ${frequency} раз(а) в день ${beforeAfterEat}, длительность курса ${duration} суток;`).join('');
   const stringTheraphies = theraphies.map(({ nameOfTheraphy, frequency, duration }) => `\n${nameOfTheraphy}, проводить ${frequency} раз(а) в неделю, количество сеансов ${duration};`).join('');
-  console.log(stringDrugs, stringTheraphies);
   const syringAnalisis = analisis.join(',\n');
-
-  // const methodic = {
-  //   patientName: values.patientName,
-  //   patientEmail: values.email,
-  //   doctorEmail: email,
-  //   drugs,
-  //   theraphies,
-  //   analisis: nameOfAnalysis,
-  //   comment: values.comments,
-  //   patientReports,
-  //   nextVisit: values.nextVisit,
-  //   dateOfTheLastVisit: date,
-  //   sourceData: values,
-  //   doctorName,
-  //   specialist,
-  //   tasks,
-  // };
 
   await newMethodic.save();
 
@@ -79,7 +60,7 @@ router.post('/', async (req, res, next) => {
                                 <p>${comment}</p>
                                 <p>${patientReports}</p>
                                 <p>Следующий визит <strong>${nextVisit}</strong></p>
-                                <p>Более подробная информация в приложении <strong>MEDICAL TODO</strong>. Перейдите по ссылке  ${'http://localhost:3000/'}</p>
+                                <p>Более подробная информация в приложении <strong>MEDICAL TODO</strong>. Перейдите по ссылке  ${'https://health-medical-helper.herokuapp.com/'}</p>
                                 
                                 <p>Вы всегда можете связаться со своим лечащим врачом по адресу ${doctorEmail}</p>`, // html body
     });
@@ -99,7 +80,6 @@ router.post('/', async (req, res, next) => {
 router.post('/update', async (req, res, next) => {
   const { methodic } = req.body;
   const { _id } = methodic;
-  console.log(_id);
 
   await Methodic.findOneAndUpdate({ _id }, methodic);
   res.send({ answer: true });

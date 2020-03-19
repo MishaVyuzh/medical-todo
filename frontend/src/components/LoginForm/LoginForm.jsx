@@ -14,7 +14,7 @@ const createUser = async (event, props, setErrorReg) => {
   const email = event.target.email.value;
   const password = event.target.password.value;
   const isLogin = props.isLogined;
-  const response = await fetch('https://health-medical-helper.herokuapp.com/auth/login', {
+  const response = await fetch(`${process.env.PATH_DEV}auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

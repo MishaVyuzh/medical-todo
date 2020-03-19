@@ -36,7 +36,7 @@ const PatientModalReport = (props) => {
       <Button style={{ margin: '20px' }} onClick={toggle}>Cвязаться с пациентом</Button>
       <Modal isOpen={modal} toggle={toggle} className={className} style={{ minWidth: '800px', minHeight: '800px' }}>
         <ModalHeader toggle={toggle}>Ваше сообщение</ModalHeader>
-        <form method="POST" action="https://health-medical-helper.herokuapp.com/savemessage">
+        <form method="POST" action={`${process.env.PATH_DEV}savemessage`}>
           <ModalBody>
             <p className="littleinput">
               <Input name="email" type="text" defaultValue="Введите почту" />

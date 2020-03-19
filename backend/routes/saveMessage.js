@@ -5,7 +5,6 @@ const nodemailer = require('nodemailer');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  
   const { textDoctor, email } = req.body;
 
   async function main() {
@@ -22,7 +21,7 @@ router.post('/', async (req, res) => {
         pass: 'Lisa010203', // generated ethereal password
       },
     });
-    
+
     // send mail with defined transport object
     const info = await transporter.sendMail({
       from: '"Medical Assistant " <patientlisa@mail.ru>', // sender address
@@ -32,10 +31,10 @@ router.post('/', async (req, res) => {
       html: `<b>Здравствуйте!</b>
       <p>${textDoctor}</p>`, // html body
     });
-    
+
     console.log('Message sent: %s', info.messageId);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    
+
     // Preview only available when sending through an Ethereal account
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
@@ -43,5 +42,5 @@ router.post('/', async (req, res) => {
   }
   main().catch(console.error);
   res.redirect('http://localhost:3000/');
-})
-  module.exports = router;
+});
+module.exports = router;

@@ -11,7 +11,7 @@ import PatientAnalyzes from '../PatientAnalyzes/PatientAnalyzes';
 const getInfo = async (props) => {
   const { email } = props.user;
   const { getMethodics } = props;
-  const response = await fetch('https://health-medical-helper.herokuapp.com/users/info', {
+  const response = await fetch(`${process.env.PATH_DEV}users/info`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
